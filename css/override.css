@@ -44,3 +44,13 @@ hr {
   opacity: 0.3;
 }
 
+/* styles.css */
+figure.center {
+  text-align: center;
+}
+
+figure.center figcaption {
+  font-style: italic;
+}
+
+
