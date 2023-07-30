@@ -44,13 +44,11 @@ hr {
   opacity: 0.3;
 }
 
-/* styles.css */
-figure.center {
-  text-align: center;
+.center {
+  text-align: center; /* Center-align the content inside the div */
 }
 
-figure.center figcaption {
-  font-style: italic;
+figure {
+  display: inline-block; /* Ensure the figure is displayed inline for centering */
 }
-
 
