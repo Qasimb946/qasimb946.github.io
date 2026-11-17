@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammad Qasim Bhatti | Ph.D. Candidate, Computer Science</title>
+<meta name="description" content="Muhammad Qasim Bhatti is a Ph.D. candidate in Computer Science at Montana State University. He studies why deep learning models fail under realistic conditions: imputation, forecasting, diffusion models, transformers and careful evaluation.">
+<meta property="og:title" content="Muhammad Qasim Bhatti | Ph.D. Candidate, Computer Science">
+<meta property="og:description" content="Deep learning research on imputation, forecasting and evaluation under realistic conditions.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1F4E99">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4E99'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' text-anchor='middle' fill='white'%3EQB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Muhammad Qasim Bhatti","jobTitle":"Ph.D. Candidate, Computer Science","affiliation":{"@type":"CollegeOrUniversity","name":"Montana State University"},"sameAs":["https://github.com/Qasimb946","https://www.linkedin.com/in/muhammad-qasim-bhatti-797303152/"]}
+</script>
+<style>
+:root{
+  --bg:#F7F5F0; --bg2:#EFEBE3; --surface:#FFFFFF; --fg:#16191F; --muted:#565D6B; --line:#E0DACD;
+  --accent:#1F4E99; --accent2:#2F7F8F; --accent-soft:#E6EDF8; --accent-fg:#FFFFFF;
+  --warn:#8A5A00; --warn-soft:#FBF1DC; --bar:#C9D4E8; --shadow:0 1px 2px rgba(20,25,35,.06),0 8px 24px rgba(20,25,35,.06);
+  --glow1:rgba(31,78,153,.16); --glow2:rgba(47,127,143,.14);
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1017; --bg2:#10161F; --surface:#151B25; --fg:#EAEDF2; --muted:#A1AABA; --line:#232D3C;
+    --accent:#86AEEB; --accent2:#6CC4D4; --accent-soft:#1A2436; --accent-fg:#0C1017;
+    --warn:#E5B85C; --warn-soft:#2A2314; --bar:#2B3A55; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    --glow1:rgba(134,174,235,.14); --glow2:rgba(108,196,212,.10); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1017; --bg2:#10161F; --surface:#151B25; --fg:#EAEDF2; --muted:#A1AABA; --line:#232D3C;
+  --accent:#86AEEB; --accent2:#6CC4D4; --accent-soft:#1A2436; --accent-fg:#0C1017;
+  --warn:#E5B85C; --warn-soft:#2A2314; --bar:#2B3A55; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  --glow1:rgba(134,174,235,.14); --glow2:rgba(108,196,212,.10); color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;overflow-x:clip;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));-webkit-text-size-adjust:100%}
+a{color:var(--accent);text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+.wrap{max-width:1040px;margin:0 auto}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.6rem,3.6vw,2.1rem);font-weight:600;margin-bottom:1.1rem}
+h3{font-size:1.18rem;font-weight:600}
+p{margin:0 0 1rem}
+section{padding-block:4rem;border-top:1px solid var(--line)}
+.eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:.55rem}
+.muted{color:var(--muted)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--accent-fg);padding:.5rem .8rem;border-radius:8px;z-index:50}
+.skip:focus{left:8px}
+/* progress + nav */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:30}
+.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  margin-left:calc(-1*max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1*max(16px,env(safe-area-inset-right,0px)));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:58px;flex-wrap:wrap;padding-block:.35rem}
+.brand{font-family:var(--serif);font-weight:700;font-size:1.08rem;color:var(--fg);text-decoration:none;display:flex;align-items:center;gap:.55rem}
+.logo{width:28px;height:28px;border-radius:8px;background:var(--accent);color:var(--accent-fg);display:grid;place-items:center;font-size:.8rem;font-weight:700}
+.nav ul{display:flex;gap:.3rem;list-style:none;margin:0;padding:0;flex-wrap:wrap;font-size:.9rem}
+.nav a.link{color:var(--muted);text-decoration:none;font-weight:500;padding:.35rem .6rem;border-radius:8px;display:block}
+.nav a.link:hover{color:var(--fg);background:var(--bg2)}
+.nav a.link[aria-current="true"]{color:var(--accent);background:var(--accent-soft)}
+.toggle{background:var(--surface);border:1px solid var(--line);color:var(--fg);border-radius:10px;padding:.35rem .7rem;font:inherit;font-size:.85rem;cursor:pointer}
+.toggle:hover{border-color:var(--accent)}
+.toggle:focus-visible,a:focus-visible,summary:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+/* hero */
+.hero{position:relative;padding-block:3.5rem 4rem;border-top:0;isolation:isolate}
+.hero::before{content:"";position:absolute;top:-60px;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:-1;
+  background:radial-gradient(600px 320px at 20% 10%,var(--glow1),transparent 70%),radial-gradient(520px 300px at 85% 40%,var(--glow2),transparent 70%),
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 44px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/44px 100%;
+  -webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent);mask-image:linear-gradient(to bottom,#000 55%,transparent);opacity:.5}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:2.5rem;align-items:center}
+.hero h1{font-size:clamp(2.3rem,6vw,3.6rem);font-weight:700;letter-spacing:-.012em;margin-bottom:.7rem}
+.role{font-size:1.12rem;color:var(--muted);margin-bottom:1.1rem}
+.lede{font-size:1.1rem;max-width:56ch}
+.buttons{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.3rem}
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.62rem 1.05rem;border-radius:11px;border:1px solid var(--accent);color:var(--accent);text-decoration:none;font-weight:600;font-size:.94rem;background:transparent;cursor:pointer;font-family:inherit;transition:transform .15s ease,filter .15s ease}
+.btn.primary{background:var(--accent);color:var(--accent-fg)}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.status{margin-top:1.4rem;display:inline-flex;gap:.6rem;align-items:flex-start;background:var(--accent-soft);border-radius:12px;padding:.65rem .9rem;font-size:.94rem;max-width:56ch}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--accent2);margin-top:.5rem;flex:none;box-shadow:0 0 0 0 var(--accent2);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent2) 55%,transparent)}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+/* demo */
+.demo{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1rem;box-shadow:var(--shadow)}
+.demo h3{font-size:1rem;margin-bottom:.15rem}
+.demo .sub{font-size:.82rem;color:var(--muted);margin-bottom:.7rem}
+.canvas-box{position:relative;width:100%;aspect-ratio:1/1;border-radius:12px;overflow:hidden;background:var(--bg2);border:1px solid var(--line)}
+canvas{width:100%;height:100%;display:block}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:.75rem 0 .5rem}
+.seg button{background:transparent;border:0;color:var(--muted);padding:.42rem .8rem;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg)}
+.slider{display:flex;align-items:center;gap:.7rem;font-size:.85rem;color:var(--muted)}
+.slider input{flex:1;accent-color:var(--accent)}
+.slider output{font-family:var(--mono);color:var(--fg);min-width:3ch;text-align:right}
+.demo .cap{font-size:.8rem;color:var(--muted);margin:.7rem 0 0}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.9rem;margin:1.4rem 0}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.05rem;box-shadow:var(--shadow)}
+.stat .n{font-family:var(--mono);font-size:1.85rem;font-weight:600;color:var(--accent);line-height:1.1}
+.stat .l{font-size:.88rem;color:var(--muted);margin-top:.35rem}
+.bars{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;margin:1.2rem 0}
+.bars .row{display:grid;grid-template-columns:minmax(120px,190px) 1fr auto;gap:.8rem;align-items:center;margin:.55rem 0;font-size:.92rem}
+.track{height:18px}
+.fill{height:100%;border-radius:5px;background:var(--bar);width:0;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.fill.best{background:var(--accent)}
+.bars .v{font-family:var(--mono);font-size:.9rem}
+.bars .cap{font-size:.85rem;color:var(--muted);margin:.7rem 0 0}
+/* cards */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.2rem 1.3rem;box-shadow:var(--shadow);transition:transform .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.card h3{margin-bottom:.15rem}
+.meta{font-size:.86rem;color:var(--muted);margin-bottom:.7rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.7rem 0 0;padding:0;list-style:none}
+.tags li{font-size:.75rem;border:1px solid var(--line);border-radius:999px;padding:.12rem .6rem;color:var(--muted);background:var(--bg)}
+ul.plain{margin:.4rem 0 1rem;padding-left:1.15rem}
+ul.plain li{margin:.3rem 0}
+details{border-top:1px solid var(--line);margin-top:.9rem;padding-top:.7rem}
+summary{cursor:pointer;font-weight:600;color:var(--accent)}
+details[open] summary{margin-bottom:.5rem}
+.note{background:var(--warn-soft);border-left:3px solid var(--warn);padding:.65rem .9rem;border-radius:8px;font-size:.92rem;margin:1rem 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;margin-top:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0 0}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:.35rem .85rem;font:inherit;font-size:.86rem;font-weight:600;cursor:pointer}
+.chip:hover{border-color:var(--accent);color:var(--fg)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.count{font-size:.85rem;color:var(--muted);margin-top:.7rem}
+.card[hidden]{display:none!important}
+/* timeline */
+.timeline{position:relative;margin-left:.4rem;padding-left:1.6rem;border-left:2px solid var(--line)}
+.titem{position:relative;padding:0 0 1.7rem}
+.titem::before{content:"";position:absolute;left:calc(-1.6rem - 7px);top:.45rem;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.when{font-family:var(--mono);font-size:.82rem;color:var(--muted);margin-bottom:.2rem}
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+/* skills */
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.tab{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:10px;padding:.45rem .9rem;font:inherit;font-weight:600;font-size:.9rem;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.panel{display:none}.panel.on{display:block}
+.skillgrid{display:flex;flex-wrap:wrap;gap:.55rem}
+.skillgrid span{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.4rem .8rem;font-size:.9rem}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.contact-list{list-style:none;padding:0;margin:0;display:grid;gap:.55rem}
+footer{padding-block:2rem 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.reveal{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .bars .row{grid-template-columns:1fr auto}.bars .row .track{grid-column:1/-1;order:3}
+  .nav ul{gap:.1rem}.nav a.link{padding:.3rem .45rem}.grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .fill{transition:none}.dot{animation:none}.btn,.card{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="logo" aria-hidden="true">QB</span>Qasim Bhatti</a>
+    <nav aria-label="Primary">
+      <ul id="navlinks">
+        <li><a class="link" href="#about">About</a></li>
+        <li><a class="link" href="#research">Research</a></li>
+        <li><a class="link" href="#projects">Projects</a></li>
+        <li><a class="link" href="#experience">Experience</a></li>
+        <li><a class="link" href="#skills">Skills</a></li>
+        <li><a class="link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="toggle" id="themeBtn" type="button" aria-label="Switch between light and dark theme">Theme</button>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">Ph.D. Candidate · Computer Science · Montana State University</p>
+      <h1>Muhammad Qasim Bhatti</h1>
+      <p class="role">Deep learning researcher: imputation, forecasting and evaluation that holds up outside the lab</p>
+      <p class="lede">I study why models that pass standard tests fail under realistic conditions, and how to train and evaluate them so they do not. My main work fills in missing regions of image time series with transformer and diffusion models, trained on a GPU cluster.</p>
+      <div class="buttons">
+        <a class="btn primary" href="Muhammad_Qasim_Bhatti_Resume.pdf">Download resume (PDF)</a>
+        <a class="btn" href="https://github.com/Qasimb946">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/muhammad-qasim-bhatti-797303152/">LinkedIn</a>
+        <button class="btn" type="button" id="copyBtn" data-email="qasimb946@gmail.com">Copy email</button>
+      </div>
+      <div class="status"><span class="dot" aria-hidden="true"></span><span>Open to Summer 2027 research and machine learning internships. Expected Ph.D. completion: December 2027. Based in Shelton, CT.</span></div>
+    </div>
+
+    <div class="demo" aria-labelledby="demoTitle">
+      <h3 id="demoTitle">Try it: same missing data, very different problem</h3>
+      <p class="sub">Interactive illustration on a synthetic field (not real data)</p>
+      <div class="canvas-box"><canvas id="maskCanvas" role="img" aria-label="A synthetic image with missing pixels shown as gray. Random masks scatter the gaps evenly. Cloud-shaped masks hide whole regions."></canvas></div>
+      <div class="seg" role="group" aria-label="Mask type">
+        <button type="button" data-mask="random" aria-pressed="false">Random mask</button>
+        <button type="button" data-mask="cloud" aria-pressed="true">Cloud-shaped mask</button>
+      </div>
+      <label class="slider" for="cover">Missing <input id="cover" type="range" min="10" max="70" value="40" step="5"><output id="coverOut" for="cover">40%</output></label>
+      <p class="cap">Same fraction of missing pixels, but cloud-shaped gaps remove whole neighborhoods. In my study, a model trained on random masks got 2.96× worse on realistic cloud-shaped ones.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="reveal">
+  <p class="eyebrow">About</p>
+  <h2>Research with an engineer's habits</h2>
+  <div class="two">
+    <div>
+      <p>I am a Ph.D. candidate in Computer Science at Montana State University (since January 2024), advised by Dr. Neda Nazemi and Dr. Faraz Dadgostari. My research is on deep learning for spatiotemporal time series: imputation and forecasting with diffusion models and transformers, and, above all, how to evaluate them honestly.</p>
+      <p>Before this I worked as a machine learning and data science intern at Fressnapf in Stuttgart, where I built a forecasting model that was deployed with MLOps, and as a data analyst building ETL workflows and Power BI dashboards. I studied computer engineering and graduate computer science in Pakistan, Germany and the United States, supported by the DAAD scholarship.</p>
+    </div>
+    <div class="card">
+      <h3>What I care about</h3>
+      <ul class="plain">
+        <li><strong>Realistic evaluation.</strong> If the test does not match deployment, the score does not mean much.</li>
+        <li><strong>Reporting costs, not just gains.</strong> Every improvement I report comes with what it gave up.</li>
+        <li><strong>Reproducible work.</strong> Version control, tests and code review, and single-variable ablations.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="research" class="reveal">
+  <p class="eyebrow">Featured research</p>
+  <h2>Imputing missing data in image time series under realistic cloud masks</h2>
+  <p>Earth-observation image time series have large gaps, and most imputation methods are tested with randomly placed holes. Real gaps are shaped like clouds. I evaluated imputation models on 977 timesteps of MODIS Aqua chlorophyll-a maps (8-day composites at 4 km, Pearl River Estuary, 2003–2023) using realistic cloud-shaped masks, and measured how much the choice of test changes the conclusion.</p>
+
+  <div class="stats" role="list">
+    <div class="stat" role="listitem"><div class="n" data-count="28.1" data-dec="1" data-suffix="%">28.1%</div><div class="l">lower held-out error than the published baseline</div></div>
+    <div class="stat" role="listitem"><div class="n" data-count="2.96" data-dec="2" data-suffix="×">2.96×</div><div class="l">error increase for a model trained on random masks, tested on cloud masks</div></div>
+    <div class="stat" role="listitem"><div class="n" data-count="17.65" data-dec="2" data-suffix="M">17.65M</div><div class="l">held-out pixels across 329 test windows</div></div>
+    <div class="stat" role="listitem"><div class="n" data-count="1000" data-dec="0" data-suffix="+">1000+</div><div class="l">GPU-hours on a university cluster (NVIDIA A40/A100)</div></div>
+  </div>
+
+  <div class="bars" role="group" aria-label="Held-out mean absolute error on realistic cloud masks">
+    <div class="row"><span>Published baseline</span><div class="track"><div class="fill" data-w="100" style="width:100%"></div></div><span class="v">0.1558</span></div>
+    <div class="row"><span>Best model (mine)</span><div class="track"><div class="fill best" data-w="71.9" style="width:71.9%"></div></div><span class="v">0.1120</span></div>
+    <p class="cap">Mean absolute error on log10 chlorophyll-a, realistic cloud masks, held-out windows. Lower is better.</p>
+  </div>
+
+  <h3>What I found</h3>
+  <ul class="plain">
+    <li><strong>The test hid the failure.</strong> A model trained on random masks looked fine on random-mask tests and got 2.96× worse on cloud-shaped masks.</li>
+    <li><strong>Two changes drove most of the gain.</strong> Training with structured, cloud-aware masks and widening the model's spatial reach (K from 1 to 7) each cut error by roughly 11–13%.</li>
+    <li><strong>One popular idea added little.</strong> Joint space-time attention contributed only a small improvement.</li>
+    <li><strong>There is a cost.</strong> On random masks, the best model is about 10% worse than the published method. I report this because it shows the gains come from matching training to realistic conditions, not from a uniformly better model.</li>
+  </ul>
+
+  <details>
+    <summary>Method and setup</summary>
+    <ul class="plain">
+      <li>Models: transformer and diffusion-based imputation models in PyTorch and TensorFlow; the best model has about 137K parameters.</li>
+      <li>Design: single-variable ablations over 15 model variants across 2 missingness regimes (random masks and cloud-shaped masks).</li>
+      <li>Compute: single GPU per job on a Slurm cluster (MSU Tempest, CUDA, NVIDIA A40/A100), 1000+ GPU-hours across the project.</li>
+      <li>Baseline: the published STIMP training recipe, evaluated on the same held-out data.</li>
+      <li>Hyperparameter search with Bayesian optimization; feature analysis with SHAP.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>Limits and open questions</summary>
+    <ul class="plain">
+      <li>The diffusion backbone gives sample-based uncertainty, but I have not measured its calibration. I do not claim the uncertainty estimates are reliable.</li>
+      <li>I model the geometry of the missing regions (cloud-shaped masks), not the physical process that causes missingness.</li>
+      <li>Next question: can a small set of structured tests predict how a model will fail in deployment before it is deployed?</li>
+    </ul>
+  </details>
+  <div class="note"><strong>Status:</strong> manuscript in preparation for ICML (submission planned January 2027). Results have been approved by the Ph.D. committee.</div>
+</section>
+
+<section id="projects" class="reveal">
+  <p class="eyebrow">Projects</p>
+  <h2>Selected work</h2>
+  <p class="muted">Filter by topic. Everything here is my own work unless the card says otherwise.</p>
+  <div class="chips" role="group" aria-label="Filter projects">
+    <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+    <button class="chip" type="button" data-filter="research" aria-pressed="false">Research</button>
+    <button class="chip" type="button" data-filter="nlp" aria-pressed="false">NLP</button>
+    <button class="chip" type="button" data-filter="vision" aria-pressed="false">Vision</button>
+    <button class="chip" type="button" data-filter="finance" aria-pressed="false">Finance</button>
+    <button class="chip" type="button" data-filter="engineering" aria-pressed="false">Engineering</button>
+    <button class="chip" type="button" data-filter="competitions" aria-pressed="false">Competitions</button>
+  </div>
+  <p class="count" id="count" aria-live="polite"></p>
+
+  <div class="grid" id="grid">
+    <article class="card" data-tags="research nlp">
+      <h3>Cross-domain transfer in aspect-based sentiment analysis</h3>
+      <p class="meta">Research study · Python, PyTorch</p>
+      <p>I reproduced and trained five architectures (BERT-base, R-GAT, R-GAT+BERT, TextGT, TextGT+BERT) on SemEval-2014 Restaurant and Laptop data and on Twitter data: 15 checkpoints, matching published accuracy within 1–3 points. Then I looked past accuracy.</p>
+      <ul class="plain">
+        <li>147 test cases were misclassified by every model, about 65% of them neutral aspects.</li>
+        <li>Across 45 train/test combinations, 13 of 30 transfers fell below the majority-class baseline.</li>
+      </ul>
+      <ul class="tags"><li>NLP</li><li>Evaluation</li><li>Transfer</li></ul>
+    </article>
+
+    <article class="card" data-tags="engineering">
+      <h3>Nonparametric and tree-based models: a baseline-controlled benchmark</h3>
+      <p class="meta">2026 · Python, NumPy, Pandas</p>
+      <p>I built k-nearest neighbors, condensed k-NN and decision trees with reduced-error pruning from scratch and compared them against null baselines on 6 datasets using 5×2 nested cross-validation.</p>
+      <ul class="plain">
+        <li>51% lower MSE than the baseline on Abalone and 77% lower on Computer Hardware.</li>
+        <li>No signal on Forest Fires, reported as such. Pruning cut test MSE by 35–45%.</li>
+      </ul>
+      <ul class="tags"><li>From scratch</li><li>Nested CV</li><li>Baselines</li></ul>
+    </article>
+
+    <article class="card" data-tags="research vision">
+      <h3>Wildfire segmentation from UAV imagery</h3>
+      <p class="meta">Ongoing · collaborative · Python, PyTorch, TensorFlow</p>
+      <p>Computer vision research on semantic segmentation of drone wildfire imagery with ST-UNet and UNet-family models on the FLAME dataset. My role has been reviewing the architecture and the planned spatial-branch upgrade (U-Net to UNet3+/UNet++), surveying fire-segmentation datasets (FLAME, Corsican Fire Database) and investigating a training-replication discrepancy across collaborators.</p>
+      <ul class="tags"><li>Segmentation</li><li>Reproducibility</li></ul>
+    </article>
+
+    <article class="card" data-tags="research">
+      <h3>DigiCARES (NSF-funded)</h3>
+      <p class="meta">Graduate team member · four-university project</p>
+      <p>AI-driven digital twins for climate-aware energy resilience across New Mexico, Montana, Oklahoma and Alabama. A $6M NSF EPSCoR project. I am a graduate team member.</p>
+      <ul class="tags"><li>Energy</li><li>Digital twins</li></ul>
+    </article>
+
+    <article class="card" data-tags="engineering">
+      <h3>Sales forecasting at scale (Fressnapf)</h3>
+      <p class="meta">May 2022 – Jun 2023 · Stuttgart · Python, MLOps</p>
+      <p>A k-nearest-neighbors model (k = 20) that forecasts each store's sales of a new article from its 20 closest product types, deployed with MLOps to reduce the 12% of logistics cost caused by over-shipping and returns. I also helped deploy 11 data pipelines across Europe (about 20K products) and worked with pull requests, code review, unit tests and CI/CD.</p>
+      <ul class="tags"><li>Deployed</li><li>Pipelines</li><li>CI/CD</li></ul>
+    </article>
+
+    <article class="card" data-tags="finance research">
+      <h3>Systematic equity signal research</h3>
+      <p class="meta">2026 – present · WorldQuant BRAIN, Numerai</p>
+      <p>Testing equity signals (Fast Expression alphas and era-wise cross-validated models). Showed that a value/quality alpha was a disguised single-factor bet using a year-by-year Sharpe decomposition.</p>
+      <ul class="tags"><li>Signals</li><li>Cross-validation</li></ul>
+    </article>
+
+    <article class="card" data-tags="finance competitions">
+      <h3>Jane Street Real-Time Market Data Forecasting</h3>
+      <p class="meta">Kaggle · Python</p>
+      <p>Ranked 596 of 3,757 teams (top 16%) forecasting market responders from real financial data.</p>
+    </article>
+
+    <article class="card" data-tags="finance competitions">
+      <h3>Optiver: Predict Nasdaq Closing Prices</h3>
+      <p class="meta">Kaggle · LightGBM, XGBoost, CatBoost</p>
+      <p>Late submission; unofficial rank 135 of 4,436 teams (top 3%) with gradient-boosted models.</p>
+    </article>
+
+    <article class="card" data-tags="competitions">
+      <h3>Playground Series S4E11: Exploring Mental Health Data</h3>
+      <p class="meta">Kaggle</p>
+      <p>Ranked 531 of 2,685 teams.</p>
+    </article>
+
+    <article class="card" data-tags="engineering">
+      <h3>Agentic AI Hackathon 2026</h3>
+      <p class="meta">Montana State University</p>
+      <p>Participant in the university's agentic AI hackathon.</p>
+    </article>
+  </div>
+</section>
+
+<section id="experience" class="reveal">
+  <p class="eyebrow">Experience and education</p>
+  <h2>Where I have worked and studied</h2>
+  <div class="timeline">
+    <div class="titem">
+      <div class="when">Aug 2024 – Present</div>
+      <h3>Graduate Research Assistant (Ph.D.)</h3>
+      <p class="meta">Montana State University</p>
+      <p>Independent research on imputation and evaluation, a sentiment-analysis study, and graduate team membership in DigiCARES. I also teach: teaching assistant for Advanced Data Mining and for Forecast and Decision Analysis, and course designer for CSCI 252 Introduction to Data Science (summer 2024).</p>
+    </div>
+    <div class="titem">
+      <div class="when">May 2022 – Jun 2023</div>
+      <h3>Machine Learning and Data Science Intern</h3>
+      <p class="meta">Fressnapf Holding, Stuttgart, Germany</p>
+      <ul class="plain">
+        <li>Built a k-nearest-neighbors forecasting model, deployed with MLOps to reduce logistics cost.</li>
+        <li>Supported a second-purchase model evaluated with ROC-AUC and PR-AUC on the rare buyer class.</li>
+        <li>Developed a method for unknown product categories in test data caused by spelling variants (about 20K products), and helped deploy 11 data pipelines across Europe.</li>
+        <li>Worked with Git pull requests, code review, unit tests and CI/CD.</li>
+      </ul>
+    </div>
+    <div class="titem">
+      <div class="when">Apr 2021 – Jun 2023</div>
+      <h3>Data Analyst (contract, remote)</h3>
+      <p class="meta">Storemasta</p>
+      <p>Analyzed sales and inventory data with Python and SQL and built Power BI dashboards that presented findings to non-technical stakeholders.</p>
+    </div>
+    <div class="titem">
+      <div class="when">Oct 2021 – Feb 2022</div>
+      <h3>Design Factory Student</h3>
+      <p class="meta">ARENA2036, Stuttgart</p>
+      <p>Interdisciplinary student project on a circular-economy topic with Mercedes.</p>
+    </div>
+    <div class="titem">
+      <div class="when">Jul 2020 – Mar 2021</div>
+      <h3>Data Analyst and Reporting</h3>
+      <p class="meta">Malibu IT Labs</p>
+      <p>Built ETL workflows with Azure real-time data streaming and Python web scraping, and live Power BI dashboards that reported business metrics to stakeholders.</p>
+    </div>
+    <div class="titem">
+      <div class="when">Jul 2019 – Oct 2019</div>
+      <h3>Intern</h3>
+      <p class="meta">Huawei Technologies, Islamabad</p>
+      <p>Python and SQL work for the telecommunications sector.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:1.2rem 0 .8rem">Education</h3>
+  <div class="edu">
+    <div class="card"><div class="when">Jan 2024 – Dec 2027 (expected)</div><h3>Ph.D. in Computer Science</h3><p class="meta">Montana State University · Advisors: Dr. Neda Nazemi, Dr. Faraz Dadgostari</p><p>Deep learning for spatiotemporal time series: diffusion models, transformers and self-attention for imputation and forecasting.</p></div>
+    <div class="card"><div class="when">2024 – 2026</div><h3>M.S. in Computer Science</h3><p class="meta">Montana State University · CGPA 3.76 / 4.0</p><p>Machine Learning, Advanced Data Mining, Artificial Intelligence, Algorithm Complexity, Cloud and Distributed Computing.</p></div>
+    <div class="card"><div class="when">2021 – 2023</div><h3>Graduate study, Computer Science</h3><p class="meta">Universität Stuttgart, Germany (partner-university exchange to MSU)</p><p>Mathematical Foundations of Autonomous Systems, Cloud Computing, Distributed Systems.</p></div>
+    <div class="card"><div class="when">2015 – 2019</div><h3>B.S. in Computer Engineering</h3><p class="meta">UET Taxila, Pakistan</p><p>Probability and Statistics, Discrete Structures, Algorithms and Data Structures.</p></div>
+  </div>
+
+  <h3 style="margin:1.4rem 0 .6rem">Awards and learning</h3>
+  <ul class="plain">
+    <li>Crawford Wildlife Scholarship (Montana State University, 2025), DAAD Scholarship (Germany, 2023) and PEEF Scholarship (Pakistan): merit awards for academic achievement.</li>
+    <li>HarvardX Introduction to Probability; Hugging Face Introduction to Large Language Models.</li>
+    <li>Attended NeurIPS 2024 and 2025.</li>
+  </ul>
+</section>
+
+<section id="skills" class="reveal">
+  <p class="eyebrow">Skills</p>
+  <h2>Tools and methods</h2>
+  <div class="tabs" role="tablist" aria-label="Skill groups">
+    <button class="tab" role="tab" id="t1" aria-selected="true" aria-controls="p1" type="button">Machine learning</button>
+    <button class="tab" role="tab" id="t2" aria-selected="false" aria-controls="p2" type="button">Languages</button>
+    <button class="tab" role="tab" id="t3" aria-selected="false" aria-controls="p3" type="button">Compute and tools</button>
+    <button class="tab" role="tab" id="t4" aria-selected="false" aria-controls="p4" type="button">Research practice</button>
+  </div>
+  <div class="panel on" id="p1" role="tabpanel" aria-labelledby="t1"><div class="skillgrid">
+    <span>PyTorch</span><span>TensorFlow</span><span>scikit-learn</span><span>Hugging Face</span><span>LightGBM</span><span>XGBoost</span><span>Deep learning</span><span>Transformers</span><span>Diffusion models</span><span>Computer vision (segmentation)</span><span>NLP</span><span>Time-series forecasting</span><span>Uncertainty estimation</span><span>SHAP</span><span>Bayesian optimization</span><span>MLOps</span>
+  </div></div>
+  <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden><div class="skillgrid">
+    <span>Python</span><span>SQL</span><span>R</span><span>Bash</span><span>C++</span><span>Java</span><span>MATLAB</span>
+  </div></div>
+  <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden><div class="skillgrid">
+    <span>CUDA</span><span>HPC</span><span>Slurm (GPU cluster, NVIDIA A40/A100)</span><span>Linux</span><span>Git and GitHub</span><span>NumPy</span><span>Pandas</span><span>SciPy</span><span>Power BI</span><span>Azure ML</span><span>AWS</span><span>Snowflake</span><span>Microsoft Office</span><span>Claude Code, Cursor</span>
+  </div></div>
+  <div class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden><div class="skillgrid">
+    <span>Single-variable ablations</span><span>Baseline-controlled evaluation</span><span>Reporting costs as well as gains</span><span>Reproducing published results</span><span>Cross-validation</span><span>Error analysis</span>
+  </div></div>
+</section>
+
+<section id="contact" class="reveal">
+  <p class="eyebrow">Contact</p>
+  <h2>Get in touch</h2>
+  <p>I am happy to talk about research, collaborations and Summer 2027 internships. Email is the quickest way to reach me.</p>
+  <ul class="contact-list">
+    <li>Email: <a href="mailto:qasimb946@gmail.com">qasimb946@gmail.com</a></li>
+    <li>GitHub: <a href="https://github.com/Qasimb946">github.com/Qasimb946</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/muhammad-qasim-bhatti-797303152/">linkedin.com/in/muhammad-qasim-bhatti-797303152</a></li>
+    <li>Based in Shelton, CT</li>
+  </ul>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr">2026</span> Muhammad Qasim Bhatti</div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* theme */
+  var btn=document.getElementById('themeBtn');
+  try{var saved=localStorage.getItem('theme');if(saved==='light'||saved==='dark'){root.setAttribute('data-theme',saved);}}catch(e){}
+  function theme(){var t=root.getAttribute('data-theme');if(t)return t;return window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+  btn.addEventListener('click',function(){
+    var n=theme()==='dark'?'light':'dark';
+    root.setAttribute('data-theme',n);
+    try{localStorage.setItem('theme',n);}catch(e){}
+    drawMask();
+  });
+  if(window.matchMedia){var mq=window.matchMedia('(prefers-color-scheme: dark)');if(mq.addEventListener){mq.addEventListener('change',function(){drawMask();});}}
+
+  /* year */
+  var y=document.getElementById('yr');if(y){y.textContent=new Date().getFullYear();}
+
+  /* progress bar */
+  var bar=document.getElementById('progress');
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?Math.min(100,window.scrollY/h*100):0)+'%';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  /* reveal + counters + bars */
+  function fmt(v,dec){return v.toFixed(dec);}
+  function runCounter(el){
+    var target=parseFloat(el.getAttribute('data-count')),dec=parseInt(el.getAttribute('data-dec')||'0',10),suf=el.getAttribute('data-suffix')||'';
+    if(reduce){el.textContent=fmt(target,dec)+suf;return;}
+    var start=null,dur=1100;
+    function step(ts){
+      if(start===null)start=ts;
+      var p=Math.min(1,(ts-start)/dur),e=1-Math.pow(1-p,3);
+      el.textContent=fmt(target*e,dec)+suf;
+      if(p<1)requestAnimationFrame(step);else el.textContent=fmt(target,dec)+suf;
+    }
+    requestAnimationFrame(step);
+  }
+  var seen=new WeakSet();
+  function reveal(el){
+    el.classList.add('in');
+    if(seen.has(el))return;seen.add(el);
+    var cs=el.querySelectorAll('[data-count]');for(var i=0;i<cs.length;i++){runCounter(cs[i]);}
+    var fs=el.querySelectorAll('.fill[data-w]');
+    for(var j=0;j<fs.length;j++){(function(f){f.style.width='0';requestAnimationFrame(function(){requestAnimationFrame(function(){f.style.width=f.getAttribute('data-w')+'%';});});})(fs[j]);}
+  }
+  var revs=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){reveal(e.target);io.unobserve(e.target);}});},{threshold:.12});
+    revs.forEach(function(r){io.observe(r);});
+  }else{revs.forEach(reveal);}
+
+  /* scroll spy */
+  var links={};document.querySelectorAll('#navlinks a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  if('IntersectionObserver' in window){
+    var spy=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){Object.keys(links).forEach(function(k){links[k].removeAttribute('aria-current');});
+        var a=links[e.target.id];if(a)a.setAttribute('aria-current','true');}
+    });},{rootMargin:'-45% 0px -50% 0px'});
+    Object.keys(links).forEach(function(id){var s=document.getElementById(id);if(s)spy.observe(s);});
+  }
+
+  /* copy email */
+  var cb=document.getElementById('copyBtn');
+  cb.addEventListener('click',function(){
+    var em=cb.getAttribute('data-email'),orig=cb.textContent;
+    function done(m){cb.textContent=m;setTimeout(function(){cb.textContent=orig;},1800);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(em).then(function(){done('Copied');},function(){done(em);});
+    }else{done(em);}
+  });
+
+  /* project filter */
+  var chips=document.querySelectorAll('.chip'),cards=document.querySelectorAll('#grid .card'),count=document.getElementById('count');
+  function applyFilter(f){
+    var n=0;
+    cards.forEach(function(c){
+      var tags=(c.getAttribute('data-tags')||'').split(' ');
+      var show=f==='all'||tags.indexOf(f)>-1;
+      c.hidden=!show;if(show)n++;
+    });
+    count.textContent='Showing '+n+' of '+cards.length+' projects';
+  }
+  chips.forEach(function(ch){ch.addEventListener('click',function(){
+    chips.forEach(function(o){o.setAttribute('aria-pressed','false');});
+    ch.setAttribute('aria-pressed','true');applyFilter(ch.getAttribute('data-filter'));
+  });});
+  applyFilter('all');
+
+  /* skill tabs */
+  var tabs=document.querySelectorAll('.tab');
+  function selectTab(t){
+    tabs.forEach(function(o){
+      var on=o===t;o.setAttribute('aria-selected',on?'true':'false');
+      var p=document.getElementById(o.getAttribute('aria-controls'));
+      if(p){p.classList.toggle('on',on);p.hidden=!on;}
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){selectTab(t);});
+    t.addEventListener('keydown',function(e){
+      var k=e.key,j=-1;
+      if(k==='ArrowRight')j=(i+1)%tabs.length;else if(k==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;
+      if(j>-1){e.preventDefault();tabs[j].focus();selectTab(tabs[j]);}
+    });
+  });
+
+  /* mask illustration */
+  var canvas=document.getElementById('maskCanvas'),ctx=canvas.getContext('2d');
+  var maskType='cloud',cover=40,N=48;
+  function rng(seed){var s=seed>>>0;return function(){s=(s+0x6D2B79F5)>>>0;var t=s;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296;};}
+  function valueNoise(seed,freq){
+    var r=rng(seed),g=freq+2,grid=[];
+    for(var i=0;i<g*g;i++)grid.push(r());
+    var out=new Float32Array(N*N);
+    for(var y=0;y<N;y++)for(var x=0;x<N;x++){
+      var fx=x/N*freq,fy=y/N*freq,x0=Math.floor(fx),y0=Math.floor(fy),tx=fx-x0,ty=fy-y0;
+      tx=tx*tx*(3-2*tx);ty=ty*ty*(3-2*ty);
+      var a=grid[y0*g+x0],b=grid[y0*g+x0+1],c=grid[(y0+1)*g+x0],d=grid[(y0+1)*g+x0+1];
+      out[y*N+x]=(a*(1-tx)+b*tx)*(1-ty)+(c*(1-tx)+d*tx)*ty;
+    }
+    return out;
+  }
+  var field=valueNoise(11,4),cloud=(function(){var a=valueNoise(7,3),b=valueNoise(19,6),o=new Float32Array(N*N);for(var i=0;i<o.length;i++)o[i]=a[i]*.7+b[i]*.3;return o;})();
+  var rand=(function(){var r=rng(5),o=new Float32Array(N*N);for(var i=0;i<o.length;i++)o[i]=r();return o;})();
+  function css(n){return getComputedStyle(root).getPropertyValue(n).trim();}
+  function hexToRgb(h){h=h.replace('#','');if(h.length===3)h=h.split('').map(function(c){return c+c;}).join('');var n=parseInt(h,16);return[(n>>16)&255,(n>>8)&255,n&255];}
+  function drawMask(){
+    var box=canvas.parentElement,size=Math.max(120,Math.floor(box.clientWidth)),dpr=window.devicePixelRatio||1;
+    canvas.width=size*dpr;canvas.height=size*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var cell=size/N,src=maskType==='cloud'?cloud:rand;
+    var sorted=Array.prototype.slice.call(src).sort(function(a,b){return a-b;});
+    var thr=sorted[Math.min(sorted.length-1,Math.floor(sorted.length*cover/100))];
+    var c1=hexToRgb(css('--accent2')||'#2F7F8F'),c2=hexToRgb(css('--accent')||'#1F4E99'),gray=css('--bg2')||'#ddd',line=css('--line')||'#bbb';
+    for(var y=0;y<N;y++)for(var x=0;x<N;x++){
+      var i=y*N+x,t=field[i];
+      var masked=src[i]<thr;
+      if(masked){ctx.fillStyle=gray;ctx.fillRect(x*cell,y*cell,cell+.6,cell+.6);
+        if((x+y)%2===0){ctx.fillStyle=line;ctx.fillRect(x*cell+cell*.35,y*cell+cell*.35,cell*.3,cell*.3);}}
+      else{var r=Math.round(c1[0]+(c2[0]-c1[0])*t),g=Math.round(c1[1]+(c2[1]-c1[1])*t),b=Math.round(c1[2]+(c2[2]-c1[2])*t);
+        ctx.fillStyle='rgb('+r+','+g+','+b+')';ctx.fillRect(x*cell,y*cell,cell+.6,cell+.6);}
+    }
+  }
+  document.querySelectorAll('[data-mask]').forEach(function(b){b.addEventListener('click',function(){
+    maskType=b.getAttribute('data-mask');
+    document.querySelectorAll('[data-mask]').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});
+    drawMask();
+  });});
+  var cv=document.getElementById('cover'),co=document.getElementById('coverOut');
+  cv.addEventListener('input',function(){cover=parseInt(cv.value,10);co.textContent=cover+'%';drawMask();});
+  window.addEventListener('resize',function(){drawMask();});
+  drawMask();
+})();
+</script>
+</body>
+</html>
